@@ -3,16 +3,18 @@ import CartItem from './cart-item/cartitem'
 
 const CartWidget = () => {
     const [misProductos, setProductos] = useState([]);
-    if (misProductos.length === 0) {
-        return (
-            <p className="cart-title">Productos en el carrito: {misProductos.length}</p>
-        )
-    } else {
-        return (
-            <div className='cart-items' id='cart-items'>
-                <CartItem props={misProductos} />
-            </div>
-        )
-    }
+    return (
+        <li className="dropdown">
+            <button className="btn button">
+                <i className="fas fa-shopping-cart"></i>
+            </button>
+            <ul className="dropdown-menu dropdown-menu-right">
+                <li>
+                    <CartItem props={misProductos}/>
+                </li>
+            </ul>
+        </li>
+    )
+
 }
 export default CartWidget
