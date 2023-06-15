@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    padding: .5rem;
+    padding: .5rem 1rem;
     background-color: #111;
 }
 .header .logo {
@@ -17,19 +17,15 @@
     margin: 0;
     padding: 0;
 }
-.header .navbar .nav-items li {
-    margin: .2rem .5rem;
-}
-.header .navbar .nav-items li a {
-    color: #fff;
-    transition: color .1s ease-in;
-}
-.header .navbar .nav-items li a:hover {
-    color: #F47D31;
-}
+
+
 .header .navbar .nav-items li {
     position: relative;
     display: inline-block;
+    margin: .2rem .5rem;
+}
+.header .navbar .nav-items li:hover {
+    color: #F47D31;
 }
 
 .header .navbar .nav-items li::after {
@@ -55,10 +51,13 @@
     transform: scaleX(0);
     opacity: 0;
 }
+
+
 .header .navbar .nav-items li a {
     position: relative;
     color: #fff;
     font-weight: bold;
+    transition: color .1s ease-in;
 }
 .header .navbar .nav-items li a::before {
     content: "";

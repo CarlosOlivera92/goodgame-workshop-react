@@ -1,12 +1,13 @@
 import './header.css'
 import { useState } from 'react';
+import NavBar from './navbar/navbar';
 
 
 const CartItems = () => {
     const [misProductos, setProductos] = useState([]);
     if (misProductos.length === 0) {
         return (
-            <p className="cart-title">No hay productos en el carrito</p>
+            <p className="cart-title">Productos en el carrito: {misProductos.length}</p>
         )
     } else {
         return (
@@ -38,24 +39,7 @@ const Header = () => {
             <div className="logo">
                 <img src="../src/assets/logo-2.png" alt="" />
             </div>
-            <nav className="navbar">
-                <ul className='nav-items list-unstyled list-inline'>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/">Productos</a></li>
-                    <li><a href="/">Nosotros</a></li>
-                    <li><a href="/">Contacto</a></li>
-                    <li className="dropdown">
-                        <button className="btn button">
-                            <i className="fas fa-shopping-cart"></i>
-                        </button>
-                        <ul className="dropdown-menu dropdown-menu-right">
-                            <li>
-                                <CartItems />
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+            <NavBar/>
         </header>
     );
 };
