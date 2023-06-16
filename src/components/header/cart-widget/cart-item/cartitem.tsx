@@ -1,4 +1,10 @@
-const CartItem = ({props}) => {
+import Producto from "../../../../classes/producto";
+
+interface CartItemProps {
+    props: Producto[];
+}
+
+const CartItem = ({ props }: CartItemProps) => {
     if (props.length === 0) {
         return (
             <p className="cart-title">Productos en el carrito: {props.length}</p>
@@ -6,18 +12,19 @@ const CartItem = ({props}) => {
     } else {
         return (
             <div className='cart-items' id='cart-items'>
-                <div className='cart-item'>
-                    <div className='image'>
-                        <img src="" alt="" />
+                {props.map((producto, index) => (
+                    <div className='cart-item' key={index}>
+                        <div className='image'>
+                            <img src="" alt="" />
+                        </div>
+                        <div className="content">
+                            <p>Precio: {producto.getPrecio()}</p>
+                            <p>Producto: {producto.getNombre()} </p>
+                        </div>
                     </div>
-                    <div className="content">
-                        <p>Producto Precio</p>
-                        <p>Producto {props} </p>
-                    </div>
-                </div>
+                ))}
             </div>
         )
     }
 }
-
 export default CartItem;

@@ -1,17 +1,22 @@
 .footer {
-    background-color:#111;
+    background-color: #111;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-.footer .footer-logo img{
+.footer-logo img {
     width: 6rem;
     margin: 0 .5rem;
 }
-.footer .footer-nav ul li {
+.footer-nav ul li {
     margin: 0 .5rem;
+    list-style: none;
 }
-.footer .footer-nav ul li a {
-    color: #777;
+.footer-nav ul li a{
+    color: #8a8887;
     transition: all .1s ease;
 }
-.footer .footer-nav ul li a:hover {
-    color: #999;
+.footer-nav ul li a:hover{
+    color: #b1aead;
 }
