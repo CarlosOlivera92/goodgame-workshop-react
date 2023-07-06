@@ -15,7 +15,7 @@ const CartItem = ({ props }: CartItemProps) => {
                 {props.map((producto, index) => (
                     <div className='cart-item' key={index}>
                         <div className='image'>
-                            <img src="" alt="" />
+                            <img src={producto.getImagen()} alt="" />
                         </div>
                         <div className="content">
                             <p>Precio: {producto.getPrecio()}</p>

@@ -1,13 +1,14 @@
+import NavBar from '../../molecules/navbar/navbar';
+import Logo from '../../atoms/logo/logo';
 import './header.css'
-import NavBar from './navbar/navbar';
+import CartWidget from './cart-widget/cartwidget';
 
 const Header = () => {
     return (
         <header className='header d-flex flex-column flex-md-row flex-xl-row align-items-center justify-content-between'>
-            <div className="logo">
-                <img src="../src/assets/logo-2.png" alt="" />
-            </div>
+            <Logo/>
             <NavBar/>
+            <CartWidget/>
         </header>
     );
 };

@@ -1,0 +1,189 @@
+.header {
+    width: 100%;
+    padding: 1rem;
+    background-color: #111;
+  }
+  
+  .header .logo {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+  }
+  
+  .header .logo img {
+    width: 4rem;
+  }
+  
+  .header .navbar {
+    width: fit-content;
+  }
+  
+  .header .navbar .nav-items {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header .navbar .nav-items li {
+    position: relative;
+    display: inline-block;
+    margin: .2rem .5rem;
+  }
+  
+  .header .navbar .nav-items li:hover {
+    color: #F47D31;
+  }
+  
+  .header .navbar .nav-items li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    transform: scaleX(0);
+    transform-origin: left;
+    width: 100%;
+    height: 2px;
+    background-color: #F47D31;
+    transition: transform 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    opacity: 0;
+  }
+  
+  .header .navbar .nav-items li:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  
+  .header .navbar .nav-items li:not(:hover)::after {
+    transition: transform 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96), opacity 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  
+  .header .navbar .nav-items li a {
+    position: relative;
+    color: #fff;
+    font-weight: bold;
+    transition: color .1s ease-in;
+  }
+  
+  .header .navbar .nav-items li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #F47D31;
+    transition: width 0.2s ease-in-out;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .header .navbar .nav-items li a:hover::before {
+    width: 100%;
+  }
+  
+  .header .navbar .nav-items li a:hover {
+    animation: textFadeIn 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  
+  .header .navbar .nav-items li a:not(:hover) {
+    animation: textFadeOut 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  
+  .dropdown {
+    position: relative;
+    z-index: 1000;
+    transition: all .1s ease-in;
+  }
+  
+  .dropdown .button-container .btn {
+    width: 100%;
+    padding: .5rem;
+  }
+  .btn.button.hovered {
+    color: #F47D31;
+  } 
+   .btn.button.nothovered {
+    color: #4f4f4f;
+  }
+  .dropdown:hover {
+    color: #F47D31;
+  }
+  
+  .dropdown .fa-shopping-cart {
+    font-size: 1.5rem;
+  }
+  
+  .dropdown-menu {
+    height: 0;
+    opacity: 0;
+    padding: 1rem !important;
+    overflow: hidden;
+    transition: height 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .dropdown-menu.expanded {
+    width: 20rem;
+    left: auto;
+    right: 0;
+    background-color: #111;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+    animation: expandir 0.3s forwards;
+    display: flex;
+  }
+  
+  .dropdown-menu.contracted {
+    width: 20rem;
+    left: auto;
+    right: 0;
+    background-color: #111;
+    color: #fff;
+    animation: contraer 0.3s forwards;
+    display: flex;
+  }
+  
+  @keyframes textFadeOut {
+    from {
+      color: #F47D31;
+    }
+    to {
+      color: #fff;
+    }
+  }
+  
+  @keyframes textFadeIn {
+    from {
+      color: white;
+    }
+    to {
+      color: #F47D31;
+    }
+  }
+  
+  @keyframes expandir {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: 10rem;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes contraer {
+    from {
+      height: 10rem;
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+  

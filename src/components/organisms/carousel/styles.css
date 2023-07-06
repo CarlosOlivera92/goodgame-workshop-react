@@ -1,0 +1,52 @@
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 ;
+    padding: 0 !important;
+}
+.hero .image {
+    width:100%;
+    height: 100%;
+    position: relative;
+}
+.hero .image::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .7;
+}
+.hero .image img {
+    position: relative;
+    width: 100%;
+    height: 30rem;
+    background-size: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.hero .buttons {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 40%;
+}
+.hero .buttons button {
+    width: 3rem;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 1rem;
+    color: #fff;
+    transition: all .1s ease-in;
+  }
+  
+  .hero .buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
