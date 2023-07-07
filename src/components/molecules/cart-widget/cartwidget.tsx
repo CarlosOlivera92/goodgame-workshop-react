@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CartItem from './cart-item/cartitem';
+import CartItem from "../../atoms/cart-item/cartitem";
 
 const CartWidget = () => {
     const [isExpanded, setIsExpanded] = useState(false);

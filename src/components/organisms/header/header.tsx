@@ -1,7 +1,7 @@
 import NavBar from '../../molecules/navbar/navbar';
 import Logo from '../../atoms/logo/logo';
 import './header.css'
-import CartWidget from './cart-widget/cartwidget';
+import CartWidget from '../../molecules/cart-widget/cartwidget';
 
 const Header = () => {
     return (

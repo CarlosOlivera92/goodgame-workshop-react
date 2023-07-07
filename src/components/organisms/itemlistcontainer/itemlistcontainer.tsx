@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useApi } from "../../../utils/api/useApi";
 import { API_URL } from "../../../utils/constants/endpoints";
-import ProductoItem from "../../producto/producto";
+import ProductoItem from "../../atoms/producto/producto-item";
 import './style.css';
 import { ColorRing } from 'react-loader-spinner';
 
@@ -38,7 +38,7 @@ const ItemListContainer = () => {
             <div className="card-container row row-cols-1 row-cols-md-3 row-cols-xl-4 gap-3 p-3 align-items-center justify-content-center">
               {productsList.map((product) => (
                 <div className="col w-auto" key={product.id}>
-                  <ProductoItem id={product.id} name={product.name} image={product.background_image} />
+                  <ProductoItem id={product.id} name={product.name} image={product.background_image} platforms={product.platforms} />
                 </div>
               ))}
             </div>
