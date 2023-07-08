@@ -1,8 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { API_URL } from "../../utils/constants/endpoints";
 import { useApi } from "../../utils/api/useApi";
-import ProductoDetalle from "../../components/atoms/producto-detalle/producto-detalle";
-import { useEffect, useState } from "react";
+import ProductoDetalle from "../../components/organisms/producto-detalle/producto-detalle";
 
 const ProductoDetalles = () => {
     const { productId } = useParams();

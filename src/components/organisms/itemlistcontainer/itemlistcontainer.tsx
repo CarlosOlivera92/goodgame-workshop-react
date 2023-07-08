@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useApi } from "../../../utils/api/useApi";
 import { API_URL } from "../../../utils/constants/endpoints";
-import ProductoItem from "../../atoms/producto/producto-item";
+import ProductoItem from "../product/producto-item";
 import './style.css';
 import { ColorRing } from 'react-loader-spinner';
 import { useNavigate } from "react-router-dom";

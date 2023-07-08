@@ -1,4 +1,4 @@
-import Carousel from '../../components/organisms/carousel/carousel';
+import Carousel from '../../components/atoms/carousel/carousel';
 import ItemListContainer from '../../components/organisms/itemlistcontainer/itemlistcontainer';
 import codbo from '../../assets/img/codbo.jpg';
 import rdr2 from "../../assets/img/rdr2.webp";
