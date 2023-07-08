@@ -4,10 +4,15 @@ import { API_URL } from "../../../utils/constants/endpoints";
 import ProductoItem from "../../atoms/producto/producto-item";
 import './style.css';
 import { ColorRing } from 'react-loader-spinner';
+import { useNavigate } from "react-router-dom";
 
 const ItemListContainer = () => {
-  const { data: products, loading: loadingProducts, error: errorResponse } = useApi(API_URL.RawgApi.url, API_URL.RawgApi.config);
-  const [productsList, setProductsList] = useState([]);
+  const navigate = useNavigate();
+  const { data: products, loading: loadingProducts, error: errorResponse } = useApi({
+    apiEndpoint: API_URL.RawgApi.urlGames('page=1'),
+    httpVerb: API_URL.RawgApi.config,
+  });
+    const [productsList, setProductsList] = useState([]);
 
   useEffect(() => {
     if (products && Array.isArray(products.results)) {
@@ -15,7 +20,9 @@ const ItemListContainer = () => {
       console.log(products.results);
     }
   }, [products]);
-
+  const onShowDetails = (id) => {
+    navigate(`/products/${id}`)
+}
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center">
       {loadingProducts ? (
@@ -38,7 +45,7 @@ const ItemListContainer = () => {
             <div className="card-container row row-cols-1 row-cols-md-3 row-cols-xl-4 gap-3 p-3 align-items-center justify-content-center">
               {productsList.map((product) => (
                 <div className="col w-auto" key={product.id}>
-                  <ProductoItem id={product.id} name={product.name} image={product.background_image} platforms={product.platforms} />
+                  <ProductoItem key={product.id} {...product} onShowDetails={onShowDetails} />
                 </div>
               ))}
             </div>

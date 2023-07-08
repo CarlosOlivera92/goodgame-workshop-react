@@ -1,8 +1,8 @@
-
+import logoImage from '../../../assets/logo-2.png'
 const Logo = () => {
   return (
     <div className="logo">
-      <img src="src/assets/logo-2.png" alt="Logo" />
+      <img src={logoImage} alt="Logo" />
     </div>
   );
 };
