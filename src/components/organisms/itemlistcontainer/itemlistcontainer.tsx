@@ -1,27 +1,38 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useApi } from "../../../utils/api/useApi";
 import { API_URL } from "../../../utils/constants/endpoints";
 import ProductoItem from "../product/producto-item";
 import './style.css';
 import { ColorRing } from 'react-loader-spinner';
 import { useNavigate } from "react-router-dom";
+import CategoryContext from "../../../utils/context/filter-context";
 
 const ItemListContainer = () => {
   const navigate = useNavigate();
+  const { selectedCategories } = useContext(CategoryContext);
   const { data: products, loading: loadingProducts, error: errorResponse } = useApi({
     apiEndpoint: API_URL.RawgApi.urlGames('page=1'),
     httpVerb: API_URL.RawgApi.config,
   });
-    const [productsList, setProductsList] = useState([]);
+  const [productsList, setProductsList] = useState([]);
 
   useEffect(() => {
     if (products && Array.isArray(products.results)) {
-      setProductsList(products.results);
-      console.log(products.results);
+      if (selectedCategories.length > 0) {
+        const filteredProducts = products.results.filter((product) =>
+          product.parent_platforms.some((platform) =>
+            selectedCategories.includes(platform.platform.id.toString())
+          )
+        );
+        setProductsList(filteredProducts);
+        console.log(filteredProducts)
+      } else {
+        setProductsList(products.results);
+      }
     }
-  }, [products]);
+  }, [products, selectedCategories]);
   const onShowDetails = (id) => {
-    navigate(`/products/${id}`)
+    navigate(`/productos/${id}`)
 }
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center">

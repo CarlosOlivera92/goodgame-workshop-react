@@ -3,6 +3,7 @@ import Home from './pages/home/home';
 import Header from './components/organisms/header/header';
 import Footer from './components/organisms/footer/footer';
 import ProductoDetalles from './pages/producto-detalles/producto-detalles';
+import Productos from './pages/productos/productos';
 
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/home" element={<Home/>}/>
-        <Route path='/products/:productId' element={<ProductoDetalles />} />
+        <Route path='/productos/:productId' element={<ProductoDetalles />} />
+        <Route path="/productos" element={<Productos/>}/>
       </Routes>
       <Footer/>
     </Router>
