@@ -1,0 +1,30 @@
+
+.cart-items .cart-item .image {
+    width: 7rem;
+    height: auto ;
+}
+.cart-items .cart-item .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .7rem;
+}
+.cart-items .cart-item .content {
+    color: #fff;
+    padding:0 1rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cart-items .cart-item .content .button {
+    color: #fff;
+    width: auto;
+    font-size: .9rem;
+    border: 2px solid  #dc3545;
+    border-radius: .7rem;
+    font-size: .8rem;
+}
+.cart-items .cart-item .content .button:hover {
+    color: #fff;
+    background-color: #dc3545;
+}

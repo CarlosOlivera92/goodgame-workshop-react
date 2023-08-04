@@ -1,5 +1,5 @@
-
-const ActionButton = ( {name, onClick, type, classname} ) => {
-    return <button className={`btn button ${classname}`} onClick={onClick} type={type}> {name} </button>;
+import './styles.css';
+const ActionButton = ( {name, onClick, type, classname, disabled} ) => {
+    return <button className={`button ${classname}`} onClick={onClick} type={type} disabled={disabled}> {name} </button>;
 };
 export default ActionButton;

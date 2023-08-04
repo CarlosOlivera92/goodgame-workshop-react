@@ -1,0 +1,24 @@
+.checkout-resume {
+    background-color: #111;
+    color: #fff;
+    border-radius: 1rem;
+}
+.checkout-resume .checkout-header {
+    padding: 2rem;
+    width: 100%;
+    border-bottom: 1px solid #3c4043;
+}
+.checkout-resume .checkout-main {
+    padding: 2rem;
+}
+.checkout-resume .checkout-main h4 {
+    width: fit-content;
+    border-bottom: 2px solid #F47D31;
+}
+.checkout-resume .total-resume {
+    color: #00cc00;
+}
+.checkout-resume .checkout-footer {
+    border-top: 1px solid #3c4043;
+    padding: 2rem;
+}

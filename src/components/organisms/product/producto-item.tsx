@@ -3,7 +3,7 @@ import Badge from '../../atoms/badge/badge';
 import ProductImage from '../../atoms/product-image/product-image';
 import './styles.css';
   
-const ProductoItem = ({ id, name, background_image, platforms, onShowDetails }) => {
+const ProductoItem = ({ id, name, price, background_image, platforms, onShowDetails, onAddToCart }) => {
     return (
       <div className="card" key={id}>
         <div className="image">
@@ -11,6 +11,8 @@ const ProductoItem = ({ id, name, background_image, platforms, onShowDetails }) 
         </div>
         <div className="content">
           <p className='h5'>{name}</p>
+          <p className='h5'>Precio: USD${price}</p>
+
           <div className="platforms">
             <p>Plataformas:
              {platforms.map((platform, index) => (
@@ -19,7 +21,7 @@ const ProductoItem = ({ id, name, background_image, platforms, onShowDetails }) 
             </p>
           </div>    
           <div className="action-buttons">
-            <ActionButton name={"Añadir al carrito"}/>
+            <ActionButton name={"Añadir al carrito"} onClick={ () => onAddToCart(id) }/>
             <ActionButton name={"Ver detalles"} onClick={() => onShowDetails(id)}/>
           </div>
         </div>  

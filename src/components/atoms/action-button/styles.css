@@ -1,0 +1,59 @@
+/* styles.css (o cualquier archivo .css de estilos) */
+.form-button {
+    background-color: #3f51b5; /* Color de fondo primario (índigo) */
+    color: #fff; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Borde redondeado (círculo) */
+    padding: 16px 24px; /* Espaciado interior */
+    box-shadow: 0 4px 8px rgba(63, 81, 181, 0.2); /* Sombra */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    outline: none; /* Quita el borde de enfoque predeterminado */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+  
+    /* Estilos al pasar el mouse */
+    &:hover {
+      background-color: #303f9f; /* Color de fondo primario más oscuro */
+    }
+  
+    /* Estilos cuando está enfocado */
+    &:focus {
+      box-shadow: 0 0 8px rgba(63, 81, 181, 0.6); /* Sombra de enfoque */
+    }
+  
+    /* Estilos cuando está deshabilitado */
+    &:disabled {
+      background-color: #a9a9a9; /* Color de fondo gris para estado deshabilitado */
+      cursor: not-allowed; /* Cambia el cursor a no permitido */
+    }
+}
+.delBtn {
+    padding: .7rem;
+    font-size: .9rem !important;
+    background-color: transparent;
+    transition: all .3s ease;
+}
+.filterBtn {
+  width: 100%;
+  background-color: #F47D31; /* Color predominante del sitio */
+  color: #fff; /* Texto en color blanco */
+  padding: 10px 20px; /* Espaciado interior del botón */
+  border: none; /* Sin borde */
+  border-radius: 1rem; /* Borde redondeado para dar un aspecto moderno */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para resaltar el botón */
+  transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+  margin-top: 1rem;
+}
+
+/* Efecto de sombra al pasar el mouse */
+.filterBtn:hover {
+  background-color: #d55d20;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de transformación al hacer clic */
+.filterBtn:active {
+  transform: scale(0.95); /* Reducción del tamaño al hacer clic */
+}

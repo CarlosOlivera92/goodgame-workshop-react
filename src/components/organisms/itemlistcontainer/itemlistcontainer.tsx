@@ -6,16 +6,22 @@ import './style.css';
 import { ColorRing } from 'react-loader-spinner';
 import { useNavigate } from "react-router-dom";
 import CategoryContext from "../../../utils/context/filter-context";
+import CartContext from "../../../utils/context/cart-context";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemListContainer = () => {
   const navigate = useNavigate();
   const { selectedCategories } = useContext(CategoryContext);
+  const { cart, setCart } = useContext(CartContext); 
   const { data: products, loading: loadingProducts, error: errorResponse } = useApi({
     apiEndpoint: API_URL.RawgApi.urlGames('page=1'),
     httpVerb: API_URL.RawgApi.config,
   });
   const [productsList, setProductsList] = useState([]);
-
+  const getRandomPrice = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
   useEffect(() => {
     if (products && Array.isArray(products.results)) {
       if (selectedCategories.length > 0) {
@@ -24,16 +30,37 @@ const ItemListContainer = () => {
             selectedCategories.includes(platform.platform.id.toString())
           )
         );
-        setProductsList(filteredProducts);
-        console.log(filteredProducts)
+        // Add prices to the filtered products within the range of 14 to 100
+        const productsWithPrices = filteredProducts.map((product) => ({
+          ...product,
+          price: getRandomPrice(14, 100),
+        }));
+        setProductsList(productsWithPrices);
       } else {
-        setProductsList(products.results);
+        // Add prices to all products within the range of 14 to 100
+        const productsWithPrices = products.results.map((product) => ({
+          ...product,
+          price: getRandomPrice(14, 100),
+        }));
+        setProductsList(productsWithPrices);
       }
     }
   }, [products, selectedCategories]);
   const onShowDetails = (id) => {
     navigate(`/productos/${id}`)
-}
+  }
+  const addToCart = (id) => {
+    const productToAdd = productsList.find((product) => product.id === id);
+    const existsInCart = cart.find( (product) => product.id === id );
+    if (productToAdd) {
+      if (existsInCart) {
+        toast.error("Solamente puedes añadir una unidad del mismo producto")
+      } else {
+        setCart([...cart, productToAdd]);
+        toast.success(`${productToAdd.name} ha sido agregado al carrito`)
+      }
+    }
+  };
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center">
       {loadingProducts ? (
@@ -56,9 +83,10 @@ const ItemListContainer = () => {
             <div className="card-container row row-cols-1 row-cols-md-3 row-cols-xl-4 gap-3 p-3 align-items-center justify-content-center">
               {productsList.map((product) => (
                 <div className="col w-auto" key={product.id}>
-                  <ProductoItem key={product.id} {...product} onShowDetails={onShowDetails} />
+                  <ProductoItem key={product.id} price={product.price} {...product} onShowDetails={onShowDetails} onAddToCart={addToCart} />
                 </div>
               ))}
+              <ToastContainer theme="dark" />
             </div>
           ) : (
             <p>Cargando productos...</p>

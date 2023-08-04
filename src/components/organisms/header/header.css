@@ -119,6 +119,8 @@
   }
   
   .dropdown-menu {
+    display: flex;
+    flex-direction: column;
     height: 0;
     opacity: 0;
     padding: 1rem !important;
@@ -171,14 +173,14 @@
       opacity: 0;
     }
     to {
-      height: 10rem;
+      height: fit-content;
       opacity: 1;
     }
   }
   
   @keyframes contraer {
     from {
-      height: 10rem;
+      height: auto;
       opacity: 1;
     }
     to {

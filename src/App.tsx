@@ -4,19 +4,24 @@ import Header from './components/organisms/header/header';
 import Footer from './components/organisms/footer/footer';
 import ProductoDetalles from './pages/producto-detalles/producto-detalles';
 import Productos from './pages/productos/productos';
+import { CartProvider } from './utils/context/cart-context';
+import Checkout from './pages/checkout/checkout';
 
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/home" element={<Home/>}/>
-        <Route path='/productos/:productId' element={<ProductoDetalles />} />
-        <Route path="/productos" element={<Productos/>}/>
-      </Routes>
-      <Footer/>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Header />
+          <Routes>
+            <Route path="/home" element={<Home/>}/>
+            <Route path='/productos/:productId' element={<ProductoDetalles />} />
+            <Route path="/productos" element={<Productos/>}/>
+            <Route path="/checkout" element={<Checkout/>}/>
+          </Routes>
+        <Footer/>
+      </Router>
+    </CartProvider>
   );
 }
 

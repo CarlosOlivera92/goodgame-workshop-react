@@ -57,12 +57,12 @@ const Aside = () => {
                     <i className="fas fa-filter"></i>
                     FILTRO 
                 </p>
-                <fieldset className="fieldset">
+                <fieldset className="fieldset checkbox-container">
                     <legend>Plataformas</legend>
                     {platforms.map((platform, index) => (
-                        <FormItem props={platform} name={"category"} type={"checkbox"} key={index}/>
+                        <FormItem props={platform} name={"category"} type={"checkbox"} key={index} value={platform.id}/>
                     ))}
-                    <ActionButton type={"submit"} name={"Filtrar"} classname={"bg-success"}/>
+                    <ActionButton type={"submit"} name={"Filtrar"} classname={"filterBtn"}/>
                 </fieldset>
             </form>
         </aside>
