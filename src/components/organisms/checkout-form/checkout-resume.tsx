@@ -48,7 +48,7 @@ const CheckoutResume = ({ bill, onSubmit }) => {
         <div className="action-buttons">
           <ActionButton
             name={"Confirmar Compra"}
-            type={"submit"}
+            type={"button"}
             classname={"btn btn-success"}
             disabled={false}
           />

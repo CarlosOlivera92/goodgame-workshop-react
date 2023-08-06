@@ -8,6 +8,7 @@ import Customer from "../../utils/classes/customer";
 import CreditCard from "../../utils/classes/credit-card";
 import Bill from "../../utils/classes/bill";
 import CheckoutResume from "../../components/organisms/checkout-form/checkout-resume";
+import ReactModal from 'react-modal';
 
 const Checkout = () => {
   const { cart } = useContext(CartContext);
@@ -15,6 +16,8 @@ const Checkout = () => {
   const [allFormsCompleted, setAllFormsCompleted] = useState(null);
   const [formDataArray, setFormDataArray] = useState([]);
   const [billData, setBillData] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     if (currentForm > 2  ) {
       setAllFormsCompleted(true);
@@ -25,6 +28,9 @@ const Checkout = () => {
   const handleFormSubmit = (data) => {
     setFormDataArray([...formDataArray, data]);
     setCurrentForm(currentForm + 1)
+    if (currentForm === 3) {
+      setShowModal(true);
+    }
   };
 
   const generateBill = () => {
@@ -88,6 +94,17 @@ const Checkout = () => {
           ) : (
             <p>Cargando...</p>
           )}
+        <ReactModal
+          isOpen={showModal}
+          onRequestClose={() => setShowModal(false)}
+          contentLabel="Compra Exitosa"
+          className="modal-content"
+          overlayClassName="modal-overlay"
+        >
+          <h3>¡Compra exitosa!</h3>
+          <p>¡Gracias por tu compra! Tu pedido ha sido procesado con éxito.</p>
+          <button onClick={() => setShowModal(false)}>Cerrar</button>
+        </ReactModal>
         </div>
       </div>
     </div>

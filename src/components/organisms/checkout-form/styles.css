@@ -13,7 +13,7 @@
 }
 .checkout-resume .checkout-main h4 {
     width: fit-content;
-    border-bottom: 2px solid #F47D31;
+    padding-bottom: 1rem;
 }
 .checkout-resume .total-resume {
     color: #00cc00;
