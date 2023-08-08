@@ -51,6 +51,7 @@ const CheckoutResume = ({ bill, onSubmit }) => {
             type={"button"}
             classname={"btn btn-success"}
             disabled={false}
+            onClick={onSubmit}
           />
         </div>
       </footer>

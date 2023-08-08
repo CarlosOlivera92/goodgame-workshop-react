@@ -8,7 +8,8 @@ import Customer from "../../utils/classes/customer";
 import CreditCard from "../../utils/classes/credit-card";
 import Bill from "../../utils/classes/bill";
 import CheckoutResume from "../../components/organisms/checkout-form/checkout-resume";
-import ReactModal from 'react-modal';
+import { MDBModal, MDBModalDialog, MDBModalContent, MDBModalHeader, MDBModalTitle, MDBBtn, MDBModalBody, MDBModalFooter } from "mdb-react-ui-kit";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const { cart } = useContext(CartContext);
@@ -17,6 +18,7 @@ const Checkout = () => {
   const [formDataArray, setFormDataArray] = useState([]);
   const [billData, setBillData] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); // Obtiene la función navigate
 
   useEffect(() => {
     if (currentForm > 2  ) {
@@ -28,8 +30,9 @@ const Checkout = () => {
   const handleFormSubmit = (data) => {
     setFormDataArray([...formDataArray, data]);
     setCurrentForm(currentForm + 1)
-    if (currentForm === 3) {
+    if (currentForm > 2) {
       setShowModal(true);
+      console.log(showModal)
     }
   };
 
@@ -94,17 +97,25 @@ const Checkout = () => {
           ) : (
             <p>Cargando...</p>
           )}
-        <ReactModal
-          isOpen={showModal}
-          onRequestClose={() => setShowModal(false)}
-          contentLabel="Compra Exitosa"
-          className="modal-content"
-          overlayClassName="modal-overlay"
-        >
-          <h3>¡Compra exitosa!</h3>
-          <p>¡Gracias por tu compra! Tu pedido ha sido procesado con éxito.</p>
-          <button onClick={() => setShowModal(false)}>Cerrar</button>
-        </ReactModal>
+          <MDBModal show={showModal} setShow={showModal} tabIndex='-1'>
+            <MDBModalDialog>
+              <MDBModalContent>
+                <MDBModalHeader>
+                  <MDBModalTitle>¡Compra exitosa!</MDBModalTitle>
+                </MDBModalHeader>
+                <MDBModalBody>¡Muchas Gracias por su compra! En instantes recibirá un correo electrónico con la información detallada de su compra.</MDBModalBody>
+
+                <MDBModalFooter>
+                  <MDBBtn color="secondary" onClick={() => 
+                    {
+                      setShowModal(false);
+                      navigate("/home"); 
+                    }
+                    }>Cerrar</MDBBtn>
+                </MDBModalFooter>
+              </MDBModalContent>
+            </MDBModalDialog>
+          </MDBModal>
         </div>
       </div>
     </div>
