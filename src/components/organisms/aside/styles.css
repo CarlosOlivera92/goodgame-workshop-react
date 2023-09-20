@@ -6,5 +6,52 @@
 .aside .form {
     color: #fff;
 }
+.form-item {
+    margin: 1rem 0;
+    padding: .5rem 0 !important;
+    display: flex;
+    flex-direction: row;
 
-
+}
+.form-item:hover {
+    background-color: #1f1f1f;
+    border-radius: 1rem;
+}
+.form-item input[type="checkbox"] {
+    width: 2.2rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    appearance: none; /* Oculta los estilos de la casilla de verificación predeterminada */
+    position: relative;
+  }
+  
+  .form-item input[type="checkbox"]::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #3498db; /* Cambia el color del borde de la casilla de verificación */
+    border-radius: 0.25rem;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .form-item input[type="checkbox"]:checked::before {
+    border-color: #27ae60; /* Cambia el color del borde cuando está marcado */
+    background-color: #27ae60; /* Cambia el color de fondo cuando está marcado */
+    transform: translateX(100%);
+  }
+  
+  /* Estilos adicionales para cambiar el cursor al pasar sobre la casilla de verificación */
+  .form-item input[type="checkbox"]:hover::before {
+    border-color: #3498db; /* Cambia el color del borde al pasar el cursor */
+  }
+  
+  /* Estilos adicionales para ajustar el espacio entre el texto y la casilla de verificación */
+  .form-item label {
+    flex-grow: 1;
+    color: #fff; /* Cambia el color del texto */
+  }

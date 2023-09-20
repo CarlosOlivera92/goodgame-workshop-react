@@ -53,12 +53,8 @@ const Aside = () => {
     return (
         <aside className="aside">
             <form className="form p-2" id="filterForm" onSubmit={onHandleSubmit}>
-                <p className="h4 text-center">
-                    <i className="fas fa-filter"></i>
-                    FILTRO 
-                </p>
                 <fieldset className="fieldset checkbox-container">
-                    <legend>Plataformas</legend>
+                    <legend className="text-center">Plataformas</legend>
                     {platforms.map((platform, index) => (
                         <FormItem props={platform} name={"category"} type={"checkbox"} key={index} value={platform.id}/>
                     ))}
