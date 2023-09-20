@@ -20,13 +20,14 @@ const AboutUs = () => {
             <div className="text">
               <h2>¿Quiénes Somos?</h2>
               <p>
-                GoodGame es la revista online líder en el mundo del gaming.
-                Con un equipo de expertos en el campo, ofrecemos reseñas,
-                noticias, entrevistas y contenido exclusivo sobre los juegos
-                más recientes y populares. Nuestro objetivo es brindar a
-                nuestros lectores una experiencia completa y actualizada en el
-                mundo del gaming. ¡Síguenos para estar al día con lo mejor del
-                mundo de los juegos!
+                GoodGame - Workshop de Videojuegos es la plataforma líder en
+                el mundo del gaming y desarrollo de videojuegos. Con un equipo
+                de expertos en el campo, ofrecemos talleres, noticias,
+                entrevistas y contenido exclusivo sobre los videojuegos más
+                recientes y populares. Nuestro objetivo es brindar a nuestros
+                participantes una experiencia completa y actualizada en el mundo
+                del desarrollo de videojuegos. ¡Acompáñanos para estar al día con
+                lo mejor del mundo de los videojuegos!
               </p>
             </div>
           </div>
@@ -43,15 +44,16 @@ const AboutUs = () => {
             <div className="text">
               <h2>Un Poco de Historia</h2>
               <p>
-                GoodGame fue fundada en el año 2022 por un grupo de amigos
-                apasionados por los videojuegos y la tecnología. Con el
-                objetivo de crear una fuente confiable y actualizada de
-                información sobre el mundo del gaming, la revista en línea
-                comenzó a publicar reseñas, noticias, entrevistas y contenido
-                exclusivo sobre los juegos más recientes y populares. Con el
-                tiempo, GoodGame se ha convertido en una de las revistas líderes
-                en el campo del gaming, ofreciendo una experiencia completa a
-                sus lectores.
+                GoodGame - Workshop de Videojuegos fue fundada en el año 2022 por
+                un grupo de entusiastas apasionados por los videojuegos y la
+                tecnología. Con el propósito de crear una fuente confiable y
+                actualizada de información sobre el mundo del desarrollo de
+                videojuegos, nuestra plataforma comenzó a ofrecer talleres,
+                noticias, entrevistas y contenido exclusivo sobre los videojuegos
+                más recientes y populares. Con el tiempo, GoodGame se ha convertido
+                en una de las plataformas líderes en el campo del desarrollo de
+                videojuegos, brindando una experiencia completa a nuestros
+                participantes.
               </p>
             </div>
           </div>
@@ -68,12 +70,13 @@ const AboutUs = () => {
             <div className="text">
               <h2>Nuestro Propósito</h2>
               <p>
-                El propósito de nuestra revista GoodGame es brindar a nuestros
-                lectores una experiencia completa y actualizada en el mundo del
-                gaming, ofreciendo reseñas, noticias, entrevistas y contenido
-                exclusivo sobre los juegos más recientes y populares. Además,
-                nuestra misión es ser una fuente confiable y experta en el campo
-                del gaming para nuestros lectores.
+                El propósito de GoodGame - Workshop de Videojuegos es ofrecer a
+                nuestros participantes una experiencia completa y actualizada en
+                el mundo del desarrollo de videojuegos, brindando talleres,
+                noticias, entrevistas y contenido exclusivo sobre los videojuegos
+                más recientes y populares. Además, nuestra misión es ser una
+                fuente confiable y experta en el campo del desarrollo de
+                videojuegos para nuestros participantes.
               </p>
             </div>
           </div>
@@ -84,16 +87,16 @@ const AboutUs = () => {
       {/* CITA */}
       <section className="quote d-flex justify-content-center">
         <blockquote className="blockquote">
-          <p>
-            Desde los primeros niveles hasta los más desafiantes, juntos hemos
-            avanzado en esta aventura llamada vida. Gracias a cada uno de los
-            jugadores y contribuidores de Goodgame, por ser parte de esta
-            comunidad que celebra la pasión por los juegos. Son la fuerza que
-            nos impulsa a seguir explorando y superando desafíos, y por eso,
-            agradecemos cada momento compartido juntos. ¡Gracias por ser parte
-            de esta épica odisea en el mundo de los videojuegos!
-          </p>
-          <cite className="blockquote-footer ">Equipo de GoodGame</cite>
+            <p>
+                Desde los primeros niveles hasta los más desafiantes, juntos hemos
+                avanzado en esta aventura llamada vida. Gracias a cada uno de los
+                participantes y colaboradores de GoodGame - Workshop de Videojuegos,
+                por ser parte de esta comunidad que celebra la pasión por los
+                videojuegos. Son la fuerza que nos impulsa a seguir explorando y
+                superando desafíos, y por eso, agradecemos cada momento compartido
+                juntos. ¡Gracias por ser parte de esta épica odisea en el mundo de los videojuegos!
+            </p>
+            <cite className="blockquote-footer ">Equipo de GoodGame</cite>
         </blockquote>
       </section>
     </main>
