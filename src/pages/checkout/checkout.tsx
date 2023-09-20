@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./styles.css";
-import CreditCardForm from "../../components/organisms/credit-card-form/credit-card-form";
-import PersonalDataForm from "../../components/organisms/form/personal-data-form";
 import CartContext from "../../utils/context/cart-context";
 import CartItem from "../../components/atoms/cart-item/cartitem";
 import Customer from "../../utils/classes/customer";
@@ -10,6 +8,7 @@ import Bill from "../../utils/classes/bill";
 import CheckoutResume from "../../components/organisms/checkout-form/checkout-resume";
 import { MDBModal, MDBModalDialog, MDBModalContent, MDBModalHeader, MDBModalTitle, MDBBtn, MDBModalBody, MDBModalFooter } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
+import Form from "../../components/organisms/forms/form";
 
 const Checkout = () => {
   const { cart } = useContext(CartContext);
@@ -19,7 +18,28 @@ const Checkout = () => {
   const [billData, setBillData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate(); // Obtiene la función navigate
-
+  const forms = [
+    {
+      title: "Paso 1: Rellene sus datos personales",
+      fields: [
+        { name: "nombre", label: "Nombre", type: "text", required: true },
+        { name: "apellido", label: "Apellido", type: "text", required: true },
+        { name: "telefono", label: "Número de teléfono", type: "number", required: true },
+        { name: "direccion", label: "Dirección", type: "text", required: true },
+        { name: "email", label: "Email", type: "text", required: true },
+      ],
+    },
+    {
+      title: "Paso 2: Rellene con los datos de su tarjeta",
+      fields: [
+        { name: "cardNumber", label: "Número de tarjeta de crédito", type: "text", required: true },
+        { name: "securityCode", label: "Código de seguridad", type: "text", required: true },
+        { name: "expirationDate", label: "Fecha de expiración", type: "month", required: true },
+        { name: "ownerName", label: "Nombre del titular", type: "text", required: true },
+        { name: "ownerAddress", label: "Dirección jurídica del titular", type: "text", required: true },
+      ],
+    },
+  ];
   useEffect(() => {
     if (currentForm > 2  ) {
       setAllFormsCompleted(true);
@@ -35,7 +55,6 @@ const Checkout = () => {
       console.log(showModal)
     }
   };
-
   const generateBill = () => {
     let actualDate = new Date();
     let day = actualDate.getDate().toString().padStart(2, '0');
@@ -89,10 +108,10 @@ const Checkout = () => {
         </div>
         <div className="forms w-100" >
           {currentForm === 1 ? (
-            <PersonalDataForm onSubmit={handleFormSubmit} />
-          ) : currentForm === 2 ? (
-            <CreditCardForm onSubmit={handleFormSubmit} />
-          ) : allFormsCompleted ?  (
+            <Form title={forms[currentForm - 1].title} fields={forms[currentForm - 1].fields} onSubmit={handleFormSubmit} />
+            ) : currentForm === 2 ? (
+              <Form title={forms[currentForm -1].title} fields={forms[currentForm - 1].fields} onSubmit={handleFormSubmit} />
+              ) : allFormsCompleted ?  (
             <CheckoutResume bill={billData} onSubmit={handleFormSubmit}/>
           ) : (
             <p>Cargando...</p>

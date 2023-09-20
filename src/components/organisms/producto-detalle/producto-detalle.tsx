@@ -1,6 +1,6 @@
 import ActionButton from '../../atoms/action-button/action-button';
 import Badge from '../../atoms/badge/badge';
-import Carousel from '../../atoms/carousel/carousel';
+import Carousel from '../carousel/carousel';
 import ProductImage from '../../atoms/product-image/product-image';
 import './styles.css';
 

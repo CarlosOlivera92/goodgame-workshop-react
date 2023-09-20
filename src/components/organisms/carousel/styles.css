@@ -29,15 +29,17 @@
     object-fit: cover;
     object-position: center;
 }
-.hero .buttons {
-    width: 100%;
+.hero .controllers {
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     position: absolute;
     top: 40%;
 }
-.hero .buttons button {
+.hero .controllers {
+    width: 100%;
+}
+.hero .controllers button {
     width: 3rem;
     font-size: 2rem;
     background-color: rgba(0, 0, 0, 0.3);
@@ -47,6 +49,6 @@
     transition: all .1s ease-in;
   }
   
-  .hero .buttons button:hover {
+  .hero .controllers button:hover {
     background-color: rgba(0, 0, 0, 0.7);
   }
