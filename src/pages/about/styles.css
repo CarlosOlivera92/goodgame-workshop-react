@@ -1,0 +1,57 @@
+.divider {
+    margin: 1rem 0;
+    width: 100%;
+    height: 4px;
+    background-color: #d1363a;
+    border-radius: .5rem;
+}
+/*************** ABOUT ***************/
+.about .card {
+    width: 20rem;
+    margin: 1rem;
+    padding: 0;
+    max-height: 100%;
+    background-color: red;
+}
+.about .card .image img {
+    height: 12rem;
+    border-radius: 1rem 1rem 0 0;
+}
+.about .card .text {
+    padding: 1rem;
+    width: 100%;
+}
+.about .card .text h2 {
+    font-size: 1.2rem;
+    padding: .3rem 0;
+}
+.quote {
+    margin: 1rem;
+    color: #fff;
+}
+.quote .blockquote {
+    width: 60rem;
+    border-left: 6px solid #DBFE7A;
+    border-radius: 1rem;
+    padding: 0.5em 10px;
+    quotes: "“" "”" "‘" "’";
+}
+.quote .blockquote p {
+    display: inline;
+    font-size: 1rem;
+}
+.quote .blockquote p::after {
+    color: #DBFE7A;
+    content: close-quote;
+    font-size: 4rem;
+    line-height: 2rem;
+    vertical-align: -.5em;
+}
+.quote .blockquote p::before {
+    color: #DBFE7A;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+}
+/*************** END OF ABOUT ***************/

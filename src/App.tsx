@@ -6,6 +6,7 @@ import ProductoDetalles from './pages/producto-detalles/producto-detalles';
 import Productos from './pages/productos/productos';
 import { CartProvider } from './utils/context/cart-context';
 import Checkout from './pages/checkout/checkout';
+import AboutUs from './pages/about/about';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path='/productos/:productId' element={<ProductoDetalles />} />
             <Route path="/productos" element={<Productos/>}/>
             <Route path="/checkout" element={<Checkout/>}/>
+            <Route path='/nosotros' element={<AboutUs/>}/>
           </Routes>
         <Footer/>
       </Router>
