@@ -40,18 +40,18 @@
   }
   
   .form-item input[type="checkbox"]:checked::before {
-    border-color: #27ae60; /* Cambia el color del borde cuando está marcado */
-    background-color: #27ae60; /* Cambia el color de fondo cuando está marcado */
+    border-color: #27ae60;
+    background-color: #27ae60; 
     transform: translateX(100%);
   }
   
   /* Estilos adicionales para cambiar el cursor al pasar sobre la casilla de verificación */
   .form-item input[type="checkbox"]:hover::before {
-    border-color: #3498db; /* Cambia el color del borde al pasar el cursor */
+    border-color: #3498db; 
   }
   
   /* Estilos adicionales para ajustar el espacio entre el texto y la casilla de verificación */
   .form-item label {
     flex-grow: 1;
-    color: #fff; /* Cambia el color del texto */
+    color: #fff; 
   }

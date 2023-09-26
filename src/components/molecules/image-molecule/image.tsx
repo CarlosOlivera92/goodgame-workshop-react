@@ -1,8 +1,8 @@
-const imageMolecule = ( {src, alt} ) => {
+const ImageMolecule = ( {src, alt} ) => {
     return (
         <div className="image">
             <img src={src} alt={alt}/>
         </div>
     )
 }
-export default imageMolecule;
+export default ImageMolecule;

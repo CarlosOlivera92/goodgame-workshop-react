@@ -9,6 +9,7 @@ import CategoryContext from "../../../utils/context/filter-context";
 import CartContext from "../../../utils/context/cart-context";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Card from "../card/card";
 
 const ItemListContainer = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const ItemListContainer = () => {
     apiEndpoint: API_URL.RawgApi.urlGames('page=1'),
     httpVerb: API_URL.RawgApi.config,
   });
+
   const [productsList, setProductsList] = useState([]);
   const getRandomPrice = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -61,6 +63,7 @@ const ItemListContainer = () => {
       }
     }
   };
+
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center">
       {loadingProducts ? (
@@ -83,7 +86,24 @@ const ItemListContainer = () => {
             <div className="card-container row row-cols-1 row-cols-md-3 row-cols-xl-4 gap-3 p-3 align-items-center justify-content-center">
               {productsList.map((product) => (
                 <div className="col w-auto" key={product.id}>
-                  <ProductoItem key={product.id} price={product.price} {...product} onShowDetails={onShowDetails} onAddToCart={addToCart} />
+                  <Card title={product.name} imgSrc={product.background_image} alt={product.name} products={product} buttons={[
+                  {
+                    id:product.id,
+                    name: "Agregar al carrito",
+                    onClick: () => addToCart(product.id), // Invoca addToCart con el id
+                    type: "button",
+                    classname: "btn-success",
+                    disabled: false
+                  },
+                  {
+                    id:product.id,
+                    name: "Mostrar detalles",
+                    onClick: () => onShowDetails(product.id), // Invoca onShowDetails con el id
+                    type: "button",
+                    classname: "button",
+                    disabled: false
+                  }
+                ]} key={product.id}/>
                 </div>
               ))}
               <ToastContainer theme="dark" />

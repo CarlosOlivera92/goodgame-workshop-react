@@ -9,9 +9,10 @@ import CheckoutResume from "../../components/organisms/checkout-form/checkout-re
 import { MDBModal, MDBModalDialog, MDBModalContent, MDBModalHeader, MDBModalTitle, MDBBtn, MDBModalBody, MDBModalFooter } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/organisms/forms/form";
+import ProgressTracker from "../../components/organisms/progress-tracker/progress-tracker";
 
 const Checkout = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
   const [currentForm, setCurrentForm] = useState(1);
   const [allFormsCompleted, setAllFormsCompleted] = useState(null);
   const [formDataArray, setFormDataArray] = useState([]);
@@ -89,23 +90,7 @@ const Checkout = () => {
       </div> : null}
 
       <div className={`${allFormsCompleted ? 'col-md-12' : 'col-md-8  p-4 d-flex flex-column align-items-center'}`}>
-        <div className="progress-container mb-3">
-          <div className={`step ${currentForm > 1 ? "completed" : ""} ${currentForm === 1 ? "current-step" : ""}`}>
-            {currentForm === 1 ? (currentForm == 1 ? "1" : "1") : currentForm > 1 ? <i className="fas fa-check"></i> : "1"}
-          </div>
-          <div className="line">
-            <div className={`active-progress ${currentForm === 1 ? "inactive" : ""} ${currentForm > 1 ? "completed" : ""}`} />
-          </div>
-          <div className={`step ${currentForm >= 2 ? "completed" : ""} ${currentForm === 2 ? "current-step" : ""}`}>
-            {currentForm === 2 ? (currentForm >= 2 ? "2" : "2") : currentForm > 2 ? <i className="fas fa-check"></i> : "2"}
-          </div>
-          <div className="line">
-            <div className={`active-progress ${currentForm === 2 ? "inactive" : ""} ${currentForm > 2 ? "completed" : ""}`} />
-          </div>
-          <div className={`step ${currentForm > 3 ? "completed" : ""} ${currentForm === 3 ? "current-step" : ""}`}>
-            {currentForm === 3 ? (currentForm > 3 ? "" : "3") : currentForm > 3 ? <i className="fas fa-check"></i> : "3"}
-          </div>
-        </div>
+        <ProgressTracker currentForm={currentForm} />
         <div className="forms w-100" >
           {currentForm === 1 ? (
             <Form title={forms[currentForm - 1].title} fields={forms[currentForm - 1].fields} onSubmit={handleFormSubmit} />
@@ -128,6 +113,8 @@ const Checkout = () => {
                   <MDBBtn color="secondary" onClick={() => 
                     {
                       setShowModal(false);
+                      localStorage.clear();
+                      setCart([]);
                       navigate("/home"); 
                     }
                     }>Cerrar</MDBBtn>
