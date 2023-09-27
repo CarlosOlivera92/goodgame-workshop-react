@@ -5,10 +5,8 @@ form {
   
 .form-item {
     width: 100%;
-    display: flex;
-    flex-direction: column;
     color: #fff;
-    padding: 1rem 0;
+    margin: 0;
 }
   
 .form-item input {
@@ -38,6 +36,7 @@ form {
 }
 .form-item .error, 
 .form-item .valid {
+    margin: 1rem 0;
     padding: 1rem;
     border-radius: .5rem;
     background-color: #d1363a;

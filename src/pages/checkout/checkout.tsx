@@ -3,7 +3,6 @@ import "./styles.css";
 import CartContext from "../../utils/context/cart-context";
 import CartItem from "../../components/atoms/cart-item/cartitem";
 import CheckoutResume from "../../components/organisms/checkout-form/checkout-resume";
-import { MDBModal, MDBModalDialog, MDBModalContent, MDBModalHeader, MDBModalTitle, MDBBtn, MDBModalBody, MDBModalFooter } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/organisms/forms/form";
 import ProgressTracker from "../../components/organisms/progress-tracker/progress-tracker";
@@ -59,6 +58,7 @@ const Checkout = () => {
     setCurrentForm(currentForm + 1)
 
     if (currentForm > 2) {
+      console.log(showModal)
       setShowModal(true);
       console.log(showModal)
     }
