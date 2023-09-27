@@ -35,7 +35,7 @@ const ItemListContainer = () => {
         // Add prices to the filtered products within the range of 14 to 100
         const productsWithPrices = filteredProducts.map((product) => ({
           ...product,
-          price: getRandomPrice(14, 100),
+          Price: getRandomPrice(14, 100),
         }));
         setProductsList(productsWithPrices);
       } else {

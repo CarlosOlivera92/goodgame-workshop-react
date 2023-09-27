@@ -4,7 +4,6 @@ import TextContent from "../../atoms/text-content/text-content";
 
 const CardBody = ({ title, text, product }) => {
     const filteredKeys = ["price", "platforms"];
-  
     return (
         <div className="card-body">
             <h4>{title}</h4>
@@ -20,7 +19,7 @@ const CardBody = ({ title, text, product }) => {
                     </div>
                 ) : (
                     product[key] && (
-                    <TextContent key={key} text={`${key}: ${product[key]}`} />
+                    <TextContent key={key} text={`Precio: $${product[key]} USD`} />
                     )
                 )
                 ))}

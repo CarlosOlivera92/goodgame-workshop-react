@@ -57,3 +57,20 @@
 .filterBtn:active {
   transform: scale(0.95); /* Reducción del tamaño al hacer clic */
 }
+.modalBtn {
+  padding: .5rem;
+  color: #fff;
+  background-color: #3f51b5;
+  border: none;
+  border-radius: .5rem;
+  transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+
+  &:hover {
+    background-color: #303f9f; /* Color de fondo primario más oscuro */
+  }
+
+  /* Estilos cuando está enfocado */
+  &:focus {
+    box-shadow: 0 0 8px rgba(63, 81, 181, 0.6); /* Sombra de enfoque */
+  }
+}
