@@ -6,10 +6,9 @@ import CheckoutResume from "../../components/organisms/checkout-form/checkout-re
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/organisms/forms/form";
 import ProgressTracker from "../../components/organisms/progress-tracker/progress-tracker";
-import * as Yup from 'yup';
 import { generateBill, generateBillNumber } from "../../utils/billingUtils/billing-utils";
 import Modal from "../../components/organisms/modal/modal";
-
+import { forms } from "../../utils/form-utils/forms-config";
 const Checkout = () => {
   const { cart, setCart } = useContext(CartContext);
   const [currentForm, setCurrentForm] = useState(1);
@@ -19,31 +18,7 @@ const Checkout = () => {
   const [billNumber, setBillNumber] = useState(""); // Agrega una variable de estado para el número de factura
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate(); // Obtiene la función navigate
-  const forms = [
-    {
-      title: "Paso 1: Rellene sus datos personales",
-      fields: [
-        { name: "nombre", label: "Nombre", type: "text", validation: Yup.string().required()},
-        { name: "apellido", label: "Apellido", type: "text", validation: Yup.string().required()},
-        { name: "telefono", label: "Número de teléfono", type: "number", validation: Yup.number().required()},
-        { name: "direccion", label: "Dirección", type: "text", validation: Yup.string().required()},
-        { name: "email", label: "Email", type: "text", validation: Yup.string().email().required() },
-      ],
-    },
-    {
-      title: "Paso 2: Rellene con los datos de su tarjeta",
-      fields: [
-        { name: "cardNumber", label: "Número de tarjeta de crédito", type: "text", validation: Yup.number().required() },
-        { name: "securityCode", label: "Código de seguridad", type: "text",  validation: Yup.string()
-        .required("Campo requerido")
-        .min(3, "El código debe ser de 3 dígitos")
-        .max(3, "El código debe ser de 3 dígitos"), },
-        { name: "expirationDate", label: "Fecha de expiración", type: "month", validation: Yup.date().required() },
-        { name: "ownerName", label: "Nombre del titular", type: "text", validation: Yup.string().oneOf([Yup.ref("nombre")], "El nombre debe ser coincidir con el titular de la tarjeta").required() },
-        { name: "ownerAddress", label: "Dirección jurídica del titular", type: "text",validation: Yup.string().oneOf([Yup.ref("direccion")], "La dirección debe ser coincidir con el titular de la tarjeta").required()},
-      ],
-    },
-  ];
+  
   useEffect(() => {
     if (currentForm > 2) {
       setAllFormsCompleted(true);
@@ -58,9 +33,7 @@ const Checkout = () => {
     setCurrentForm(currentForm + 1)
 
     if (currentForm > 2) {
-      console.log(showModal)
       setShowModal(true);
-      console.log(showModal)
     }
   };
   const closeModal = () => {
