@@ -40,7 +40,7 @@ const Checkout = () => {
     setShowModal(false);
     localStorage.clear();
     setCart([]);
-    navigate("/home"); 
+    navigate("/"); 
   }
   
   return (
