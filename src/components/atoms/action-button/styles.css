@@ -10,22 +10,18 @@
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
     outline: none; /* Quita el borde de enfoque predeterminado */
     transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
-  
-    /* Estilos al pasar el mouse */
-    &:hover {
-      background-color: #303f9f; /* Color de fondo primario más oscuro */
-    }
-  
-    /* Estilos cuando está enfocado */
-    &:focus {
-      box-shadow: 0 0 8px rgba(63, 81, 181, 0.6); /* Sombra de enfoque */
-    }
-  
-    /* Estilos cuando está deshabilitado */
-    &:disabled {
-      background-color: #a9a9a9; /* Color de fondo gris para estado deshabilitado */
-      cursor: not-allowed; /* Cambia el cursor a no permitido */
-    }
+}
+.form-button:hover {
+  background-color: #303f9f; /* Color de fondo primario más oscuro */
+
+}
+.form-button:focus {
+  box-shadow: 0 0 8px rgba(63, 81, 181, 0.6); /* Sombra de enfoque */
+
+}
+.form-button:disabled {
+  background-color: #a9a9a9; /* Color de fondo gris para estado deshabilitado */
+  cursor: not-allowed; /* Cambia el cursor a no permitido */
 }
 .delBtn {
     padding: .7rem;
@@ -64,13 +60,12 @@
   border: none;
   border-radius: .5rem;
   transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+.modalBtn:hover {
+  background-color: #303f9f; /* Color de fondo primario más oscuro */
 
-  &:hover {
-    background-color: #303f9f; /* Color de fondo primario más oscuro */
-  }
+}
+.modalBtn:focus {
+  box-shadow: 0 0 8px rgba(63, 81, 181, 0.6); /* Sombra de enfoque */
 
-  /* Estilos cuando está enfocado */
-  &:focus {
-    box-shadow: 0 0 8px rgba(63, 81, 181, 0.6); /* Sombra de enfoque */
-  }
 }

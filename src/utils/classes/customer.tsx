@@ -1,4 +1,8 @@
 class Customer {
+    name: any;
+    address: any;
+    emailAddress: any;
+    phoneNumber: any;
     constructor(name, lastName, address, emailAddress, phoneNumber) {
         this.name = name;
         this,lastName = lastName;

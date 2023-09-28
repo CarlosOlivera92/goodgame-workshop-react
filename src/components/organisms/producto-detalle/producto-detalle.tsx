@@ -44,7 +44,13 @@ const ProductoDetalle = ({ id, name, background_image, platforms, screenshots, p
                 </div>
               </div>
               <div className="action-buttons">
-                <ActionButton name="Añadir al carrito"/>
+                <ActionButton 
+                  name="Añadir al carrito"
+                  type={"button"}
+                  classname={"button"}
+                  onClick={""}
+                  disabled={false}
+                />
               </div>
             </div>
           </div>

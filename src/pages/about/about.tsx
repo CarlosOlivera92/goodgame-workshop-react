@@ -21,6 +21,8 @@ const AboutUs = () => {
             participantes una experiencia completa y actualizada en el mundo
             del desarrollo de videojuegos. ¡Acompáñanos para estar al día con
             lo mejor del mundo de los videojuegos!`}
+            buttons={[]}
+            products={[]}
           />
           {/* NOSOTROS ITEM 2 */}
           <Card 
@@ -37,6 +39,8 @@ const AboutUs = () => {
             en una de las plataformas líderes en el campo del desarrollo de
             videojuegos, brindando una experiencia completa a nuestros
             participantes.`}
+            buttons={[]}
+            products={[]}
           />
           {/* NOSOTROS ITEM 3 */}
           <Card 
@@ -50,6 +54,8 @@ const AboutUs = () => {
             más recientes y populares. Además, nuestra misión es ser una
             fuente confiable y experta en el campo del desarrollo de
             videojuegos para nuestros participantes.`}
+            buttons={[]}
+            products={[]}
           />
         </div>
         {/* FIN DE NOSOTROS */}

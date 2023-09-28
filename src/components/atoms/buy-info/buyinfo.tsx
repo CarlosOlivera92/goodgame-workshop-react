@@ -5,9 +5,13 @@ export const BuyInfo = ({total, onClick}) => {
         return (   
             <div className="buyInfo bg-dark d-flex flex-column align-items-center p-2 rounded">
                 <p>Total USD ${total}</p>
-                <ActionButton type={"button"} name={"Comprar Ahora"} onClick={ () => 
-                                onClick()
-                } classname={"button"}/>
+                <ActionButton 
+                    type={"button"}
+                    name={"Comprar Ahora"}
+                    onClick={ () => onClick()}
+                    classname={"button"}
+                    disabled={false}
+                />
             </div>
         )
     }

@@ -1,14 +1,12 @@
 import { useContext } from 'react';
 import CartContext from '../../../utils/context/cart-context';
 import ActionButton from '../action-button/action-button';
-
-import './style.css';
-import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import BuyInfo from '../buy-info/buyinfo';
+import './style.css';
 
-const CartItem = ({ props }) => {
-    const { removeFromCart } = useContext(CartContext);
+const CartItem = ({props, total}) => {
+    
+    const { removeFromCart }:any = useContext(CartContext);
     const handleRemoveFromCart = (productId) => {
         let [selectedProduct] = props.filter((product) => product.id === productId);
         toast.success(`${selectedProduct.name} ha sido eliminado del carrito`);
@@ -35,12 +33,12 @@ const CartItem = ({ props }) => {
                                     name={"Eliminar del carrito"}
                                     onClick={() => handleRemoveFromCart(producto.id)}
                                     classname={"delBtn"}
+                                    disabled={false}
                                 />
                             </div>
                         </div>
                     ))}
                     <ToastContainer theme="dark" />
-
                 </>
             )}
         </div>

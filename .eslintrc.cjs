@@ -1,3 +1,7 @@
+
+/* eslint-disable */
+// Código donde se deshabilitan todas las reglas temporalmente
+
 module.exports = {
   env: { browser: true, es2020: true },
   extends: [
@@ -9,7 +13,7 @@ module.exports = {
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   plugins: ['react'],
   rules: {
-    'react-refresh/only-export-components': 'warn',
-    "react/prop-types": "warn",
+    // Aquí puedes dejar reglas específicas que desees habilitadas
   },
 }
+

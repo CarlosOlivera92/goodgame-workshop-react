@@ -22,7 +22,7 @@ const Checkout = () => {
   useEffect(() => {
     if (currentForm > 2) {
       setAllFormsCompleted(true);
-      const generatedBill = generateBill(formDataArray, cart);
+      const generatedBill:any = generateBill(formDataArray, cart);
       const generatedBillNumber = generateBillNumber();
       setBillData(generatedBill); // Usar generatedBill en lugar de bill
       setBillNumber(generatedBillNumber); // Usar generatedBillNumber en lugar de generatedBillNumber
@@ -46,7 +46,8 @@ const Checkout = () => {
   return (
     <div className="container d-flex flex-row justify-content-center p-4 ">
       {!allFormsCompleted ? <div className="col col-md-4   p-4 cart-container">
-        <CartItem props={cart} />
+        
+        <CartItem props={cart} total={null}/>
       </div> : null}
 
       <div className={`${allFormsCompleted ? 'col-md-12' : 'col-md-8  p-4 d-flex flex-column align-items-center'}`}>

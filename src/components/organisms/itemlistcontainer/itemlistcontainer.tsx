@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useApi } from "../../../utils/api/useApi";
 import { API_URL } from "../../../utils/constants/endpoints";
-import ProductoItem from "../product/producto-item";
 import './style.css';
 import { ColorRing } from 'react-loader-spinner';
 import { useNavigate } from "react-router-dom";
@@ -25,8 +24,10 @@ const ItemListContainer = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   useEffect(() => {
+    // @ts-ignore
     if (products && Array.isArray(products.results)) {
       if (selectedCategories.length > 0) {
+        // @ts-ignore
         const filteredProducts = products.results.filter((product) =>
           product.parent_platforms.some((platform) =>
             selectedCategories.includes(platform.platform.id.toString())
@@ -40,6 +41,7 @@ const ItemListContainer = () => {
         setProductsList(productsWithPrices);
       } else {
         // Add prices to all products within the range of 14 to 100
+        // @ts-ignore
         const productsWithPrices = products.results.map((product) => ({
           ...product,
           price: getRandomPrice(14, 100),
@@ -86,7 +88,7 @@ const ItemListContainer = () => {
             <div className="card-container row row-cols-1 row-cols-md-3 row-cols-xl-4 gap-3 p-3 align-items-center justify-content-center">
               {productsList.map((product) => (
                 <div className="col w-auto" key={product.id}>
-                  <Card title={product.name} imgSrc={product.background_image} alt={product.name} products={product} buttons={[
+                  <Card text={null} title={product.name} imgSrc={product.background_image} alt={product.name} products={product} buttons={[
                   {
                     id:product.id,
                     name: "Agregar al carrito",

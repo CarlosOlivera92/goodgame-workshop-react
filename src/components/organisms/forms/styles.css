@@ -6,7 +6,7 @@ form {
 .form-item {
     width: 100%;
     color: #fff;
-    margin: 0;
+    margin: 0   ;
 }
   
 .form-item input {
@@ -18,21 +18,18 @@ form {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s;
-  
-    &:hover {
-      border-color: #666;
-    }
-  
-    &:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
-    }
-  
-    &:disabled {
-      background-color: #555;
-      border-color: #777;
-      color: #ccc;
-    }
+}
+.form-item input:hover {
+  border-color: #666;
+}
+.form-item input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);}.form-item:disabled {
+}
+.form-item input:disabled {
+  background-color: #555;
+  border-color: #777;
+  color: #ccc;
 }
 .form-item .error, 
 .form-item .valid {

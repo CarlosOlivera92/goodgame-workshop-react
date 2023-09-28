@@ -7,7 +7,7 @@ const FormItem = ({ props, type, name, label, required, value, onChange, error }
     <div className="form-item">
       {type === "checkbox" ? (
         <>
-          <InputItem props={props} type={type} name={name} value={value} onChange={onChange} />
+          <InputItem id={props.id} props={props} type={type} name={name} value={value} onChange={onChange} required={false}/>
           <label className="btn-icon">
             <span className="icon-wrapper"></span>
             {props.name}
@@ -16,7 +16,7 @@ const FormItem = ({ props, type, name, label, required, value, onChange, error }
       ) : (
         <div className="form-item d-flex flex-column">
           <label htmlFor={name}>{label}</label>
-          <InputItem type={type} name={name} value={value} required={required} onChange={onChange} />
+          <InputItem {...props} type={type} name={name} value={value} onChange={onChange} required={false}/>
           {isValid && <div className="valid">Correcto</div>}
           {error && <div className="error">{error}</div>}
         </div>

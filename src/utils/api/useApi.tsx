@@ -6,12 +6,18 @@ export const useApi = (config) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleFetch = useCallback(async () => {
+  const fetchData = useCallback(async () => {
     try {
+      setLoading(true);
       const response = await fetch(apiEndpoint, httpVerb);
-      if (!response.ok) throw new Error(response.statusText);
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status} - ${response.statusText}`);
+      }
+
       const responseData = await response.json();
       setData(responseData);
+      setError(null);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -20,14 +26,18 @@ export const useApi = (config) => {
   }, [apiEndpoint, httpVerb]);
 
   useEffect(() => {
-    if (data.length === 0) {
-      handleFetch();
-    }
-  }, [data, handleFetch, apiEndpoint, httpVerb]);
+    fetchData();
+  }, [fetchData]);
+
+  // Método para realizar solicitudes manuales
+  const request = useCallback(() => {
+    fetchData();
+  }, [fetchData]);
 
   return {
     data,
     loading,
     error,
+    request, // Proporciona un método para realizar solicitudes manuales
   };
 };

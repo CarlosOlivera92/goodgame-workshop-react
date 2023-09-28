@@ -26,13 +26,6 @@ const Form = ( { title, fields, onSubmit } ) => {
       onSubmit(values);
     },
   });
-  const handleInputChange = (e) => {
-    const { name, value } = formData;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
   return(
     <form className="mb-3" onSubmit={formik.handleSubmit}>
       <h2>{title}</h2>
@@ -48,6 +41,7 @@ const Form = ( { title, fields, onSubmit } ) => {
         name={"Enviar"}
         classname={"mt-3 form-button"}
         disabled={!formik.isValid}
+        onClick={""}
       />
     </form>
   )

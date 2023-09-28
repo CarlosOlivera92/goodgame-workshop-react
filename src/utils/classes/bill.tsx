@@ -1,4 +1,10 @@
 class Bill {
+    billNumber: any;
+    date: any;
+    customer: any;
+    cart: any;
+    creditCard: any;
+    total: number;
     constructor(billNumber, date, customer, cart, creditCard) {
         this.billNumber = billNumber;
         this.date = date;

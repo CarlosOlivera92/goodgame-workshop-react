@@ -6,14 +6,16 @@ import FormItem from "../../molecules/form-item/form-item";
 import { useContext } from "react";
 import CategoryContext from "../../../utils/context/filter-context";
 import ActionButton from "../../atoms/action-button/action-button";
+
+
 const Aside = () => {
     const { selectedCategories, setSelectedCategories } = useContext(CategoryContext);
     const { data: apiResponse, loading: loadingPlatforms, error: errorResponse } = useApi({
         apiEndpoint: API_URL.RawgApi.urlPlatforms(''),
         httpVerb: API_URL.RawgApi.config,
-    });
-    const platforms = apiResponse.results; // Obtener el array de plataformas desde la respuesta de la API
-    const onHandleSubmit = (event) => {
+      });
+      const platforms = (apiResponse as { results?: any[] }).results || [];
+      const onHandleSubmit = (event) => {
         event.preventDefault();
 
         const formData = new FormData(event.target);
@@ -43,7 +45,7 @@ const Aside = () => {
         return <p>Error: {errorResponse.message}</p>;
     }
 
-    if (!apiResponse || !apiResponse.results) {
+    if (!apiResponse || !('results' in apiResponse)) {
         return null;
     }
 
@@ -56,9 +58,10 @@ const Aside = () => {
                 <fieldset className="fieldset checkbox-container">
                     <legend className="text-center">Plataformas</legend>
                     {platforms.map((platform, index) => (
-                        <FormItem props={platform} name={"category"} type={"checkbox"} key={index} value={platform.id}/>
+                        // @ts-ignore
+                        <FormItem props={platform} name={"category"} type={"checkbox"} value={platform.id}/>
                     ))}
-                    <ActionButton type={"submit"} name={"Filtrar"} classname={"filterBtn"}/>
+                    <ActionButton type={"submit"} name={"Filtrar"} classname={"filterBtn"} disabled={false} onClick={""}/>
                 </fieldset>
             </form>
         </aside>
